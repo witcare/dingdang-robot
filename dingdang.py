@@ -127,15 +127,15 @@ class Dingdang(object):
         self.mic.say(salutation, cache=True)
 
         # start web server
-        # webport = "8080"
+        webport = "8080"
         # start server commad
-        # cmd = 'cd %s && python -m SimpleHTTPServer %s' % (self.mic.dingdangpath.LOGIN_PATH, webport)
-        # self.mic.say('正在启动服务器', cache=True)
-        # subprocess.Popen(cmd, shell=True)
-        # time.sleep(3)
-        # success = u'后台服务器启动成功，服务端口：%s' % (8080)
-        # self.mic.say(success, cache=True)
-        # webbrowser.open_new('http://localhost:8080/') 
+        cmd = 'cd %s && python -m SimpleHTTPServer %s' % (self.mic.dingdangpath.LOGIN_PATH, webport)
+        self.mic.say('正在启动服务器', cache=True)
+        subprocess.Popen(cmd, shell=True)
+        time.sleep(3)
+        success = u'后台服务器启动成功，服务端口：%s' % (8080)
+        self.mic.say(success, cache=True)
+        webbrowser.open_new('http://localhost:8080/') 
           
         conversation.handleForever()
 
@@ -144,9 +144,9 @@ if __name__ == "__main__":
 
     print('''
 *******************************************************"
-*      维康维康   - 中文语音对话机器人               *
+*      维康维康   - 中文语音对话机器人                *
 *          (c) 2017 维康 <pm@witcare.com>             *
-*   https://github.com/witcare/dingdang-robot.git       *
+*   https://github.com/witcare/dingdang-robot.git     *
 *******************************************************
 
 如需查看log，可以执行 `tail -f 维康所在目录/temp/dingdang.log`

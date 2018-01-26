@@ -127,18 +127,15 @@ class Dingdang(object):
         self.mic.say(salutation, cache=True)
 
         # start web server
-        webport = "8080"
+        # webport = "8080"
         # start server commad
-        cmd = 'cd %s && python -m SimpleHTTPServer %s' % (self.mic.dingdangpath.LOGIN_PATH, webport)
-        try:
-          self.mic.say('正在启动服务器', cache=True)
-          subprocess.Popen(cmd, shell=True)
-          time.sleep(3)
-          success = u'后台服务器启动成功，服务端口：%s' % (8080)
-          self.mic.say(success, cache=True)
-          webbrowser.open_new('http://localhost:8080/') 
-        except Exception, e:
-          logger.error(e)
+        # cmd = 'cd %s && python -m SimpleHTTPServer %s' % (self.mic.dingdangpath.LOGIN_PATH, webport)
+        # self.mic.say('正在启动服务器', cache=True)
+        # subprocess.Popen(cmd, shell=True)
+        # time.sleep(3)
+        # success = u'后台服务器启动成功，服务端口：%s' % (8080)
+        # self.mic.say(success, cache=True)
+        # webbrowser.open_new('http://localhost:8080/') 
           
         conversation.handleForever()
 

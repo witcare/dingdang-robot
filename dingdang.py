@@ -123,10 +123,12 @@ class Dingdang(object):
             conversation.wxbot = self.wxBot
             t = threading.Thread(target=self.start_wxbot)
             t.start()
+            
+        self.mic.say(salutation, cache=True)
 
         # start web server
         webport = "8080"
-        # start server
+        # start server commad
         cmd = 'cd %s && python -m SimpleHTTPServer %s' % (self.mic.dingdangpath.LOGIN_PATH, webport)
         try:
           self.mic.say('正在启动服务器', cache=True)
@@ -135,12 +137,9 @@ class Dingdang(object):
           success = u'后台服务器启动成功，服务端口：%s' % (8080)
           self.mic.say(success, cache=True)
           webbrowser.open_new('http://localhost:8080/') 
-        except Exception, ex1:
-          logger.error(ex1)
-          self.mic.say('抱歉，服务器启动失败', cache=True)
+        except Exception, e:
+          logger.error(e)
           
-        self.mic.say(salutation, cache=True)
-
         conversation.handleForever()
 
 
@@ -193,5 +192,5 @@ if __name__ == "__main__":
     except Exception:
         logger.error("Error occured!", exc_info=True)
         sys.exit(1)
-
+          
     app.run()

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>管理首页</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+<script type="text/javascript" src="Public/js/jquery.js"></script>
+<script type="text/javascript" src="Public/js/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript" src="Public/js/jquery.mousewheel.js"></script>
+<script src="Public/zui/lib/datetimepicker/datetimepicker.min.js"></script>
+<link href="Public/zui/lib/datetimepicker/datetimepicker.min.css" rel="stylesheet" />
+<link href="Public/css/Site.css" rel="stylesheet" />
+<script src="Public/js/data.js"></script>
+<link href="Public/css/PagedList.css" rel="stylesheet" />
+<script src="Public/zui/lib/autotrigger/autotrigger.min.js"></script>
+<link rel="stylesheet" type="text/css" href="Public/zui/css/zui.css" media="all">
+<script src="Public/zui/js/zui.js"></script>
+<link rel="stylesheet" type="text/css" href="Public/css/admin.css" media="all">
+<link rel="stylesheet" type="text/css" href="Public/css/ext.css" media="all">
+<link rel="stylesheet" type="text/css" href="Public/css/module.css">
+<link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+<script src="Public/js/layer/layer.js"></script>
+<script src="Public/js/thinkbox/jquery.thinkbox.js"></script>
+
+<script src="Public/js/common.js"></script>
+<script src="Public/js/com/com.toast.class.js"></script>
+<link href="Public/zui/lib/chosen/chosen.css" rel="stylesheet" />
+<script src="Public/zui/lib/chosen/chosen.js"></script>
+<script src="Public/js/jquery.unobtrusive-ajax.min.js"></script>
+<script src="Public/js/data.js"></script>
+<script src="demo_img/kanban.js"></script>
+
+<script type="text/javascript">
+    //导航高亮
+    $(document).ready(function () {
+        $("#").addClass("active");
+        $("#").addClass("AbrColorOK");
+    });
+</script>
+
+
+
+<body>
+    <div id="Layer1" style="position:absolute; left:0px; top:0px; width:100%; height:100%">
+    <div style="position: absolute;right: 2%;top: 2.5%;"><span id="ctime" style="color:#FFF;font-size: 20px;"></span></div>
+        <img id="bg" style="width: 100%;height: 100%" src="demo_img/01.jpg"/>
+    </div>
+    <!--
+    <a id="returnhome" href="#" onclick="myBackbuttonListener();" style="display:block;position:fixed;bottom:8%;right:4%;z-index:1000;">
+			<img src="demo_img/home.png" width="50px" height="50px"/>
+
+    </a>
+    -->
+<script>
+   
+    $(function () {
+    	setInterval("getCurrentDate()", 1000);
+	   // alert("function");
+        //var request = GetRequest();
+        //var id = request["id"];
+        //var second = request["interval"];
+        //if (id != null) {
+            //inventory(id, second);
+        //}
+        //setBody();
+    	var returnhome_btn = getCookie("returnhome_btn");
+        if(returnhome_btn == "false"){
+        	$("#returnhome").hide();
+        }else{
+        	$("#returnhome").show();
+        };
+		    InitPic1("demo_img/01.jpg");
+
+        setPic('demo_img/01.jpg|demo_img/02.jpg|demo_img/03.jpg|demo_img/04.jpg|demo_img/05.jpg|demo_img/06.jpg|demo_img/07.jpg|demo_img/08.jpg|demo_img/09.jpg|demo_img/10.jpg|demo_img/11.jpg|demo_img/12.jpg|demo_img/13.jpg|demo_img/14.jpg|demo_img/15.jpg|demo_img/20.jpg|demo_img/21.jpg|demo_img/22.jpg|demo_img/23.jpg|demo_img/24.jpg|demo_img/25.jpg|demo_img/26.jpg', 10000);
+        
+    });
+    var i = 0;
+    var ulss;
+	  var STATIC_SECOND=30000;
+    function setPic(url, second) {
+	    //alert(url);
+        if (second == null)
+            second = STATIC_SECOND;
+        //document.body.style.backgroundImage = "url(http://115.28.242.138:90/Upload/20160705/2011120810381191.jpg)"; //改变背景图片
+        //$("#bg").src = ;
+        ulss = url.split("|");
+        //setTimeout(function () { InitPic(second); }, second);
+    }
+    function InitPic(sc) {
+        if (i < ulss.length) {
+            $("#bg").attr("src", ulss[i]);
+        } else {
+            i = 0;
+            $("#bg").attr("src", ulss[i]);
+        }
+        i++;
+        setTimeout(function () { InitPic(sc); }, sc);
+    }
+    function InitPic1(url) {
+        $("#bg").attr("src", url);
+    }
+   var keystring = "";
+		
+		function keypress(e)
+		{
+		var currKey=0,CapsLock=0,e=e||event;
+		   currKey=e.keyCode||e.which||e.charCode;
+		CapsLock=currKey>=65&&currKey<=90;
+		switch(currKey)
+		{
+		   　 　 
+		   case 8: keyName = "[退格]"; break;
+		    　 　 　 case 9: keyName = "[制表]"; break;
+		    　 　 　 case 13:keyName = "[回车]";break;
+		    　 　 　 case 32:keyName = "[空格]"; break;
+		    　 　 　 case 33:keyName = "[PageUp]";  break;
+		    　 　 　 case 34:keyName = "[PageDown]";  break;
+		    　 　 　 case 35:keyName = "[End]";   break;
+		    　 　 　 case 36:keyName = "[Home]";   break;
+		    　 　 　 case 37:keyName = "[方向键左]";  break;
+		    　 　 　 case 38:keyName = "[方向键上]";   break;
+		    　 　 　 case 39:keyName = "[方向键右]";  break;
+		   　 　 　   case 40:keyName = "[方向键下]";  break;
+		    　 　 　 case 46:keyName = "[删除]";   break;
+		    　 　 　 //default:keyName = "";    break;
+		    
+		   //屏蔽了退格、制表、回车、空格、方向键、删除键
+		   　 　 //case 8: case 9:case 13:case 32:case 37:case 38:case 39:case 40:case 46:keyName = "";break;
+		   　 　 default:keyName = String.fromCharCode(currKey); break;
+		}
+		keystring += currKey+":"+keyName+"<br/>";
+		}
+		function keydown(e)
+		{
+		var e=e||event;
+		var currKey=e.keyCode||e.which||e.charCode;
+		if((currKey>7&&currKey<14)||(currKey>31&&currKey<47))
+		{
+		   switch(currKey)
+		   　 　 {
+		    　 　 　 case 8: keyName = "[退格]"; break;
+		    　 　 　 case 9: keyName = "[制表]"; break;
+		    　 　 　 case 13:keyName = "[回车]"; gotoNextPage(); break;
+		    　 　 　 case 32:keyName = "[空格]"; break;
+		    　 　 　 case 33:keyName = "[PageUp]";  gotoLastPage(); break;
+		    　 　 　 case 34:keyName = "[PageDown]"; gotoNextPage(); break;
+		    　 　 　 case 35:keyName = "[End]";   break;
+		    　 　 　 case 36:keyName = "[Home]";   break;
+		    　 　 　 case 37:keyName = "[方向键左]"; gotoLastPage();  break;
+		    　 　 　 case 38:keyName = "[方向键上]"; gotoLastPage(); break;
+		    　 　 　 case 39:keyName = "[方向键右]";  gotoNextPage(); break;
+		   　 　 　   case 40:keyName = "[方向键下]";  gotoNextPage(); break;
+		    　 　 　 case 46:keyName = "[删除]";   break;
+		    　 　 　 default:keyName = "";    break;
+		   }
+		   keystring += currKey+":"+keyName+"<br/>";
+		}
+		    //alert(keystring);
+		   $("#content").html(keystring);
+		}
+	
+	   document.onkeypress=keypress;
+	   document.onkeydown =keydown;
+	   
+	 //swipe 的dome
+		  $("body").swipe( {
+		  swipe:function(event, direction, distance, duration, fingerCount) {
+		  //alert("你用"+fingerCount+"个手指以"+duration+"秒的速度向" + direction + "滑动了" +distance+ "像素 " );
+		       if(direction == "right" && distance >="100" || direction == "down" && distance >="100"){
+		    	   gotoLastPage();
+		       }else if(direction == "left" && distance >="100" || direction == "up" && distance >="100"){
+		    	   gotoNextPage();
+		       }else{
+		      	 return false;
+		       }
+		  }
+		  });
+			
+	  function gotoNextPage()
+	  {
+       //window.location.href = "/kanban/index.html";
+	     if(i<ulss.length-1) {
+			 i=i+1;
+			 //InitPic(STATIC_SECOND);
+			 $("#bg").attr("src", ulss[i]);
+	     } else {
+		   //window.location.href = "../index.html";
+		   window.location.href = "demo.html";
+		 }
+	    
+	   
+	  }
+	  function gotoLastPage()
+	  {
+			if(i==0) {
+			  //window.location.href = "../index.html";
+			  window.location.href = "demo.html";
+			} else {
+			   i=i-1;
+			   $("#bg").attr("src", ulss[i]);
+			}
+
+			 //InitPic(STATIC_SECOND);
+			     //window.location.href = "/kanban/index.html";
+				 // window.location.href = "http://xmjl.jitmes.com/kanban/";
+		}
+			//document.onkeyup =keyup;
+
+
+		/*获取当前时间*/
+    function getCurrentDate() {
+       var timeStr = '';
+       var curDate = new Date();
+       var curMonth = curDate.getMonth() + 1;  //获取当前月份(0-11,0代表1月)
+       var curDay = curDate.getDate();       //获取当前日(1-31)
+       var curWeekDay = curDate.getDay();    //获取当前星期X(0-6,0代表星期天)
+       var curHour = curDate.getHours();      //获取当前小时数(0-23)
+       var curMinute = curDate.getMinutes();   // 获取当前分钟数(0-59)
+       var curSec = curDate.getSeconds();      //获取当前秒数(0-59)
+       timeStr = curMonth + '月' + curDay + '日 周';
+       switch (curWeekDay) {
+           case 0:
+               timeStr += '日';
+               break;
+           case 1:
+               timeStr += '一';
+               break;
+           case 2:
+               timeStr += '二';
+               break;
+           case 3:
+               timeStr += '三';
+               break;
+           case 4:
+               timeStr += '四';
+               break;
+           case 5:
+               timeStr += '五';
+               break;
+           case 6:
+               timeStr += '六';
+               break;
+       }
+       timeStr = curMonth + '月' + curDay + '日 ';
+       if (curHour < 10) {
+           if (curMinute < 10) {
+               if (curSec < 10) {
+                   timeStr += ' 0' + curHour + ':0' + curMinute + ':0' + curSec;
+               }
+               else {
+                   timeStr += ' 0' + curHour + ':0' + curMinute + ':' + curSec;
+               }
+           }
+           else {
+               if (curSec < 10) {
+                   timeStr += ' 0' + curHour + ':' + curMinute + ':0' + curSec;
+               }
+               else {
+                   timeStr += ' 0' + curHour + ':' + curMinute + ':' + curSec;
+               }
+           }
+       }
+       else {
+           if (curMinute < 10) {
+               if (curSec < 10) {
+                   timeStr += ' ' + curHour + ':0' + curMinute + ':0' + curSec;
+               }
+               else {
+                   timeStr += ' ' + curHour + ':0' + curMinute + ':' + curSec;
+               }
+           }
+           else {
+               if (curSec < 10) {
+                   timeStr += ' ' + curHour + ':' + curMinute + ':0' + curSec;
+               }
+               else {
+                   timeStr += ' ' + curHour + ':' + curMinute + ':' + curSec;
+               }
+           }
+       }
+
+       timeStr="";
+       $("#ctime").text(timeStr);
+    }
+
+    setInterval(function () {
+    	gotoNextPage();
+}, STATIC_SECOND);
+ </script>
+</body>
+</html>

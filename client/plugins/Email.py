@@ -7,7 +7,7 @@ import datetime
 import logging
 from dateutil import parser
 
-WORDS = ["EMAIL", "INBOX"]
+WORDS = ["EMAIL", "INBOX", "YOUXIANG"]
 SLUG = "email"
 
 

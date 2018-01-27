@@ -146,11 +146,11 @@ class Dingdang(object):
         #b.open('http://localhost:8080/')
         #webbrowser.open_new('http://localhost:8080/')
         #os.system('taskkill /F /IM chrome.exe')
-				web = WebApp() 
+				#web = WebApp() 
         #web.go("http://www.163.com")
-				web.show()
-				url = "http://www.163.com"
-				web.load(url)
+				#web.show()
+				#url = "http://www.163.com"
+				#web.load(url)
         conversation.handleForever()
 
 

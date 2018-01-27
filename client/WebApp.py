@@ -4,8 +4,8 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWebKitWidgets import *
 
-class WebApp(QWidget):
-    def __init__(self, parent=None):
+class WebApp:
+    def __init__(self):
         super(Form, self).__init__(parent)
 
         # self.setWindowOpacity(1)

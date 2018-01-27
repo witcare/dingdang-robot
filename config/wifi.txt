@@ -13,3 +13,5 @@ network={
 ÍË³ö
 °´ Ctrl + X ÍË³ö±à¼­Æ÷
 
+pip install web.py -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+

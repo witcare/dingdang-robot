@@ -16,7 +16,7 @@ from client import stt
 from client import dingdangpath
 from client import diagnose
 from client import WechatBot
-from client import WebServer
+from client import WebApp
 from client.conversation import Conversation
 
 # Add dingdangpath.LIB_PATH to sys.path
@@ -128,13 +128,13 @@ class Dingdang(object):
         self.mic.say(salutation, cache=True)
 
         # start web server
-        webport = "8080"
-        webpath = self.mic.dingdangpath.LOGIN_PATH
+        #webport = "8080"
+        #webpath = self.mic.dingdangpath.LOGIN_PATH
         # start server commad
-        cmd = 'cd %s && python -m SimpleHTTPServer %s' % (self.mic.dingdangpath.LOGIN_PATH, webport)
+        #cmd = 'cd %s && python -m SimpleHTTPServer %s' % (self.mic.dingdangpath.LOGIN_PATH, webport)
         #self.mic.say('正在启动服务器', cache=True)
-        subprocess.Popen(cmd, shell=True)
-        time.sleep(3)
+        #subprocess.Popen(cmd, shell=True)
+        #time.sleep(3)
         #success = u'后台服务器启动成功，服务端口：%s' % (8080)
         #self.mic.say(success, cache=True)
         #webbrowser.open_new('http://localhost:8080/') 
@@ -142,11 +142,12 @@ class Dingdang(object):
 				#time.sleep(3)
 				#'chromium' Chromium('chromium')  
 				#'chromium-browser' Chromium('chromium-browser')
-        b = webbrowser.get('chromium-browser')
-        b.open('http://localhost:8080/')
+        #b = webbrowser.get('chromium-browser')
+        #b.open('http://localhost:8080/')
         #webbrowser.open_new('http://localhost:8080/')
         #os.system('taskkill /F /IM chrome.exe')
-        
+				web = WebApp() 
+        web.go("http://www.163.com")
         conversation.handleForever()
 
 

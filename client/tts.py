@@ -21,7 +21,6 @@ import datetime
 import base64
 import hmac
 import hashlib
-import md5
 from dateutil import parser as dparser
 from abc import ABCMeta, abstractmethod
 from uuid import getnode as get_mac

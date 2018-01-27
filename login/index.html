@@ -46,6 +46,8 @@ function CloseWebPage(){
   window.close();
  }
 }
+
+    
 </script>
 		
 		<a href="demo/demo.html">看板</a>
@@ -56,6 +58,35 @@ function CloseWebPage(){
 <div class="footer-w3l">
 	<p>&copy; 2017-2018 维康物联 <pm@witcare.com> | <a href="https://github.com/witcare/dingdang-robot">View WeiKang-Robot</a></p>
 </div>
-
+<script>
+	function toggleFullScreen() {  
+        if (!document.fullscreenElement && // alternative standard method  
+            !document.mozFullScreenElement && !document.webkitFullscreenElement) {// current working methods  
+            if (document.documentElement.requestFullscreen) {  
+                document.documentElement.requestFullscreen();  
+            } else if (document.documentElement.mozRequestFullScreen) {  
+                document.documentElement.mozRequestFullScreen();  
+            } else if (document.documentElement.webkitRequestFullscreen) {  
+                document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);  
+            }  
+        } else {  
+            if (document.cancelFullScreen) {  
+                document.cancelFullScreen();  
+            } else if (document.mozCancelFullScreen) {  
+                document.mozCancelFullScreen();  
+            } else if (document.webkitCancelFullScreen) {  
+                document.webkitCancelFullScreen();  
+            }  
+        }  
+    } 
+    
+    window.onload = function() { 
+    	  toggleFullScreen();
+    }
+    
+     
+    
+    
+</script>
 </body>
 </html>

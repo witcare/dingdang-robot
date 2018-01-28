@@ -130,9 +130,9 @@ class Dingdang(object):
         #webport = "8080"
         #webpath = self.mic.dingdangpath.LOGIN_PATH
         # start server commad
-        #cmd = 'cd %s && python -m SimpleHTTPServer %s' % (self.mic.dingdangpath.LOGIN_PATH, webport)
+        cmd = 'cd %s && python3 browser.py' % ('/home/pi/robot-browser')
         #self.mic.say('正在启动服务器', cache=True)
-        #subprocess.Popen(cmd, shell=True)
+        subprocess.Popen(cmd, shell=True)
         #time.sleep(3)
         #success = u'后台服务器启动成功，服务端口：%s' % (8080)
         #self.mic.say(success, cache=True)

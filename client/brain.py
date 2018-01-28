@@ -90,6 +90,7 @@ class Brain(object):
         text -- user input, typically speech, to be parsed by a plugin
         send_wechat -- also send the respondsed result to wechat
         """
+        # print('brain query:' + texts[0])
         if thirdparty_call:
             # check whether plugin is not allow to be call by thirdparty
             for plugin in self.exclude_plugins:
@@ -101,8 +102,13 @@ class Brain(object):
                         return
 
         for plugin in self.plugins:
+            # print(plugin.SLUG)
             for text in texts:
+                 # if plugin.isValid(text):
+                     #  print("try to valid the plugin " + plugin.__name__+'  '+text)
+                
                 if plugin.isValid(text) and self.isEnabled(plugin):
+                     # print("try to valid the plugin " + plugin.__name__)
                     self._logger.debug("'%s' is a valid phrase for plugin " +
                                        "'%s'", text, plugin.__name__)
                     try:

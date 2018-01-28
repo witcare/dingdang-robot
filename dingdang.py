@@ -16,7 +16,6 @@ from client import stt
 from client import dingdangpath
 from client import diagnose
 from client import WechatBot
-from client import WebApp
 from client.conversation import Conversation
 
 # Add dingdangpath.LIB_PATH to sys.path

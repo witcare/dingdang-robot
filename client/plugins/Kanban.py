@@ -25,13 +25,13 @@ def handle(text, mic, profile, wxbot=None):
         wxBot -- wechat robot
     """
 
-    if any(ext in text for ext in [u"看板", u"看板看板", u"我的看板"]):
+    if any(ext in text for ext in [u"看板", u"生产看板", u"缺料看板", u"异常看板"]):
         sendSocket('01')
         #mic.say(u"01看板看板")
-    if u"上一页" in text:
+    if any(ext in text for ext in [u"上一页", u"上页"]):
         sendSocket('02')
         #mic.say(u"02看板上一页")
-    if u"下一页" in text:
+    if any(ext in text for ext in [u"下一页", u"下页"]):
         sendSocket('03')
         #mic.say(u"03看板下一页")
         
@@ -45,4 +45,4 @@ def isValid(text):
         Arguments:
         text -- user-input, typically transcribed speech
     """
-    return any(word in text for word in ["看板","上一页", "下一页"])
+    return any(word in text for word in ["看板","生产看板","缺料看板","异常看板","上一页", "下一页","上页", "下页"])

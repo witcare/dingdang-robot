@@ -47,7 +47,13 @@ def handle(text, mic, profile, wxbot=None):
         mic.say(u"设备报修通知已经提交，将发送短信给相关负责人，并打开报警灯，需要关闭报警灯，请按取消按键")
     if any(ext in text for ext in [u"作业指导书"]):
         sendSocket('0501')   
-         mic.say(u"即将打开作业指导书页面")                 
+        mic.say(u"即将打开作业指导书页面")     
+    if any(ext in text for ext in [u"打开报警灯"]):
+        sendSocket('0601')   
+        mic.say(u"即将打开报警灯")     
+    if any(ext in text for ext in [u"关闭报警灯"]):
+        sendSocket('0602')   
+        mic.say(u"即将关闭报警灯")            
         #mic.say(u"03看板下一页")
         
     #mic.say(text)
@@ -60,4 +66,4 @@ def isValid(text):
         Arguments:
         text -- user-input, typically transcribed speech
     """
-    return any(word in text for word in ["首页","返回首页","开机页面","看板","生产看板","异常看板","上一页", "下一页","上页", "下页", "报工", "生产报工", "缺料", "设备故障", "设备报修", "作业指导书", "上", "下", "前", "后", "往上", "往下", "往前", "往后"])
+    return any(word in text for word in ["首页","返回首页","开机页面","看板","生产看板","异常看板","上一页", "下一页","上页", "下页", "报工", "生产报工", "缺料", "设备故障", "设备报修", "作业指导书", "上", "下", "前", "后", "往上", "往下", "往前", "往后", "打开报警灯", "关闭报警灯"])

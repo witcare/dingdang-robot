@@ -43,17 +43,17 @@ def handle(text, mic, profile, wxbot=None):
         sendSocket('0301')
         mic.say(u"缺料信息已经提交，将发送短信给相关负责人，并打开报警灯，需要关闭报警灯，请按取消按键")
     if any(ext in text for ext in [u"设备故障", u"设备报修"]):
-        sendSocket('0401') 
+        sendSocket('0401')
         mic.say(u"设备报修通知已经提交，将发送短信给相关负责人，并打开报警灯，需要关闭报警灯，请按取消按键")
     if any(ext in text for ext in [u"作业指导书"]):
-        sendSocket('0501')   
-        mic.say(u"即将打开作业指导书页面")     
+        sendSocket('0501')
+        mic.say(u"即将打开作业指导书页面")
     if any(ext in text for ext in [u"打开报警灯"]):
-        sendSocket('0601')   
-        mic.say(u"即将打开报警灯")     
+        sendSocket('0601')
+        mic.say(u"即将打开报警灯")
     if any(ext in text for ext in [u"关闭报警灯"]):
-        sendSocket('0602')   
-        mic.say(u"即将关闭报警灯")            
+        sendSocket('0602')
+        mic.say(u"即将关闭报警灯")      
         #mic.say(u"03看板下一页")
         
     #mic.say(text)

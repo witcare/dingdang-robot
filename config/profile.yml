@@ -29,7 +29,7 @@ prefers_email: false
 
 # 勿扰模式，该时间段内不执行通知检查
 do_not_bother:
-    enable: true # 开启勿扰模式
+    enable: false # 开启勿扰模式
     since: 23    # 开始时间
     till: 9      # 结束时间，如果比 since 小表示第二天
 
@@ -112,12 +112,12 @@ tuling:
 # http://botfactory.emotibot.com/
 emotibot:
     appid: '32ee80dddb36f1dc5356517503b3f55e'
-    active_mode: true  # 是否主动说更多点话
+    active_mode: false  # 是否主动说更多点话
 
 # 邮箱
 # 如果使用网易邮箱，还需设置允许第三方客户端收发邮件
 email:
-    enable: false
+    enable: true
     address: '13215918188@163.com'
     password: 'Witcare123'  # 如果是网易邮箱，须填写应用授权密码而不是登录密码！
     smtp_server: 'smtp.163.com'

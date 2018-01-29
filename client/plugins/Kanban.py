@@ -1,6 +1,7 @@
 # -*- coding: utf-8-*-
 import socket
 import time
+import urllib2
 
 WORDS = [u"KANBAN", u"SHANGYIYE", u"XIAYIYE"]
 SLUG = "kanban"
@@ -41,19 +42,35 @@ def handle(text, mic, profile, wxbot=None):
         mic.say(u"即将打开报工页面")
     if any(ext in text for ext in [u"缺料", u"生产缺料"]):
         sendSocket('0301')
-        mic.say(u"缺料信息已经提交，将发送短信给相关负责人，并打开报警灯，需要关闭报警灯，请按取消按键")
+        mic.say(u"缺料信息已经提交，将发送短信给相关负责人，并打开报警灯")
+        try:
+            s = urllib2.urlopen("http://saasapi.jitmes.com/api/Demo/IotDevice/Button?reader=435af433d87c6c69&address=8D77764C&button=01").read()  
+        except urllib2.HTTPError,e:
+            print e.code
     if any(ext in text for ext in [u"设备故障", u"设备报修"]):
         sendSocket('0401')
-        mic.say(u"设备报修通知已经提交，将发送短信给相关负责人，并打开报警灯，需要关闭报警灯，请按取消按键")
+        mic.say(u"设备报修通知已经提交，将发送短信给相关负责人，并打开报警灯")
+        try:
+            s = urllib2.urlopen("http://saasapi.jitmes.com/api/Demo/IotDevice/Button?reader=435af433d87c6c69&address=8D77764C&button=02").read()  
+        except urllib2.HTTPError,e:
+            print e.code
     if any(ext in text for ext in [u"作业指导书"]):
         sendSocket('0501')
         mic.say(u"即将打开作业指导书页面")
     if any(ext in text for ext in [u"打开报警灯"]):
         sendSocket('0601')
         mic.say(u"即将打开报警灯")
+        try:
+            s = urllib2.urlopen("http://saasapi.jitmes.com/api/Demo/IotDevice/Button?reader=435af433d87c6c69&address=8D77764C&button=01").read()  
+        except urllib2.HTTPError,e:
+            print e.code
     if any(ext in text for ext in [u"关闭报警灯"]):
         sendSocket('0602')
-        mic.say(u"即将关闭报警灯")      
+        mic.say(u"即将关闭报警灯")
+        try:
+            s = urllib2.urlopen("http://saasapi.jitmes.com/api/Demo/IotDevice/Button?reader=435af433d87c6c69&address=8D77764C&button=10").read()  
+        except urllib2.HTTPError,e:
+            print e.code
         #mic.say(u"03看板下一页")
         
     #mic.say(text)

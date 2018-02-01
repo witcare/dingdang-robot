@@ -102,6 +102,11 @@ class Dingdang(object):
         print("登录成功后，可以与自己的微信账号（不是文件传输助手）交互")
         self.wxBot.run(self.mic)
 
+    def start_browser(self):
+        # start web browser
+        cmd = 'cd %s && python3 browser.py' % ('/home/pi/robot-browser')
+        subprocess.Popen(cmd, shell=True)
+
     def run(self):
         if 'first_name' in self.config:
             salutation = (u"%s 我能为您做什么?"
@@ -124,9 +129,6 @@ class Dingdang(object):
             t.start()
 
         self.mic.say(salutation, cache=True)
-        # start web browser
-        cmd = 'cd %s && python3 browser.py' % ('/home/pi/robot-browser')
-        subprocess.Popen(cmd, shell=True)
         conversation.handleForever()
 
 

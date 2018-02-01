@@ -126,30 +126,9 @@ class Dingdang(object):
             
         self.mic.say(salutation, cache=True)
 
-        # start web server
-        #webport = "8080"
-        #webpath = self.mic.dingdangpath.LOGIN_PATH
-        # start server commad
+        # start web browser
         cmd = 'cd %s && python3 browser.py' % ('/home/pi/robot-browser')
-        #self.mic.say('正在启动服务器', cache=True)
         subprocess.Popen(cmd, shell=True)
-        #time.sleep(3)
-        #success = u'后台服务器启动成功，服务端口：%s' % (8080)
-        #self.mic.say(success, cache=True)
-        #webbrowser.open_new('http://localhost:8080/') 
-        #WebServer.StartServer(webport,webpath)
-				#time.sleep(3)
-				#'chromium' Chromium('chromium')  
-				#'chromium-browser' Chromium('chromium-browser')
-        #b = webbrowser.get('chromium-browser')
-        #b.open('http://localhost:8080/')
-        #webbrowser.open_new('http://localhost:8080/')
-        #os.system('taskkill /F /IM chrome.exe')
-				#web = WebApp() 
-        #web.go("http://www.163.com")
-				#web.show()
-				#url = "http://www.163.com"
-				#web.load(url)
         conversation.handleForever()
 
 

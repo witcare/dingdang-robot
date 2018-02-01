@@ -129,6 +129,8 @@ class Dingdang(object):
             t.start()
 
         self.mic.say(salutation, cache=True)
+        tb = threading.Thread(target=self.start_browser)
+        tb.start()
         conversation.handleForever()
 
 

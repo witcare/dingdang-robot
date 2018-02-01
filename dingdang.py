@@ -10,7 +10,6 @@ import argparse
 import threading
 import time
 import subprocess
-import webbrowser
 from client import tts
 from client import stt
 from client import dingdangpath
@@ -123,9 +122,8 @@ class Dingdang(object):
             conversation.wxbot = self.wxBot
             t = threading.Thread(target=self.start_wxbot)
             t.start()
-            
-        self.mic.say(salutation, cache=True)
 
+        self.mic.say(salutation, cache=True)
         # start web browser
         cmd = 'cd %s && python3 browser.py' % ('/home/pi/robot-browser')
         subprocess.Popen(cmd, shell=True)
@@ -135,15 +133,15 @@ class Dingdang(object):
 if __name__ == "__main__":
 
     print('''
-*******************************************************"
-*      维康维康   - 中文语音对话机器人                *
-*          (c) 2017 维康 <pm@witcare.com>             *
-*   https://github.com/witcare/dingdang-robot.git     *
-*******************************************************
+    *******************************************************"
+    *      维康维康   - 中文语音对话机器人                *
+    *          (c) 2017 维康 <pm@witcare.com>             *
+    *   https://github.com/witcare/dingdang-robot.git     *
+    *******************************************************
 
-如需查看log，可以执行 `tail -f 维康所在目录/temp/dingdang.log`
+    如需查看log，可以执行 `tail -f 维康所在目录/temp/dingdang.log`
 
-''')
+    ''')
 
     if args.verbose:
         logging.basicConfig(
@@ -181,5 +179,5 @@ if __name__ == "__main__":
     except Exception:
         logger.error("Error occured!", exc_info=True)
         sys.exit(1)
-          
+
     app.run()

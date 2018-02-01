@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <head>
-<title>维康智能机器人</title>
+<title>叮当机器人 微信登陆二维码 DingDang Robot Waiting to be Controlled by Tencent WeiXin</title>
 
 <!-- css files -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
@@ -11,21 +11,13 @@
 
 <body>
 <div class="header">
-	<h1>维康 - 精益智造中文语音对话机器人</h1>
+	<h1>叮当 - 中文语音对话机器人</h1>
 </div>
 <div class="w3-main">
 	<div class="agile-info">
-		<h3>请使用[维康维康]来启动对话状态</h3>
-		<p>常用指令包括:<br/>
-			时间 几点  <br/>
-			音乐 百度音乐<br/>
-			传话 缓存 <br/>
-			闲聊 拍照 <br/>
-			成语 天气<br/> 
-			备忘 室温 <br/>
-			新闻 线路 翻译 <br/> 
-			重启 树莓派状态 <br/> 
-			微博热搜 看板</p>
+		<h3>请使用微信扫描二维码以登陆叮当</h3>
+		<img src="wxqr.png" alt="image">
+		<p>若二维码过期，请让叮当重新启动服务器。</p>
 		
 <script type="text/javascript">
 function CloseWebPage(){
@@ -46,47 +38,16 @@ function CloseWebPage(){
   window.close();
  }
 }
-
-    
 </script>
 		
-		<a href="demo/demo.html">看板</a>
+		<a href="javascript:CloseWebPage();">关闭窗口</a>
 		
 	</div>
 </div>
 
 <div class="footer-w3l">
-	<p>&copy; 2017-2018 维康物联 <pm@witcare.com> | <a href="https://github.com/witcare/dingdang-robot">View WeiKang-Robot</a></p>
+	<p>&copy; 2017 潘伟洲 <m@hahack.com> | <a href="http://dingdang.hahack.com/">View DingDang-Robot</a></p>
 </div>
-<script>
-	function toggleFullScreen() {  
-        if (!document.fullscreenElement && // alternative standard method  
-            !document.mozFullScreenElement && !document.webkitFullscreenElement) {// current working methods  
-            if (document.documentElement.requestFullscreen) {  
-                document.documentElement.requestFullscreen();  
-            } else if (document.documentElement.mozRequestFullScreen) {  
-                document.documentElement.mozRequestFullScreen();  
-            } else if (document.documentElement.webkitRequestFullscreen) {  
-                document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);  
-            }  
-        } else {  
-            if (document.cancelFullScreen) {  
-                document.cancelFullScreen();  
-            } else if (document.mozCancelFullScreen) {  
-                document.mozCancelFullScreen();  
-            } else if (document.webkitCancelFullScreen) {  
-                document.webkitCancelFullScreen();  
-            }  
-        }  
-    } 
-    
-    window.onload = function() { 
-    	  toggleFullScreen();
-    }
-    
-     
-    
-    
-</script>
+
 </body>
 </html>

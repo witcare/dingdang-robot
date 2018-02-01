@@ -120,7 +120,7 @@ email:
     enable: true
     address: 'witcare@aliyun.com'
     password: 'witcare123'  # 如果是网易邮箱，须填写应用授权密码而不是登录密码！
-    smtp_server: 'smtp.aliyun.com
+    smtp_server: 'smtp.aliyun.com'
     smtp_port: '25'  # 这里填写非SSL协议端口号
     imap_server: 'imap.aliyun.com'
     imap_port: '143'  # 这里填写非SSL协议端口号
@@ -158,7 +158,7 @@ netease_music:
 # 使用心知天气的接口
 # https://www.seniverse.com/
 weather:
-    key: 'pqfk6ttgb66nuf0h'
+    key: 'pqfk6ttgb66nuf0h' #pqfk6ttgb66nuf0h
     location: '厦门'
 
 # WEB服务器

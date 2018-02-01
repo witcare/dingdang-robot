@@ -37,7 +37,7 @@ def handle(text, mic, profile, wxbot=None):
         #mic.say(u"02看板上一页")
     if any(ext in text for ext in [u"下一页", u"下页", u"下", u"往下", u"后", u"往后"]):
         sendSocket('0103')
-    if any(ext in text for ext in [u"报工", u"生产报工"]):
+    if any(ext in text for ext in [u"报工", u"生产报工", u"工单"]):
         sendSocket('0201')
         mic.say(u"即将打开报工页面")
     if any(ext in text for ext in [u"缺料", u"生产缺料"]):
@@ -54,7 +54,7 @@ def handle(text, mic, profile, wxbot=None):
             s = urllib2.urlopen("http://saasapi.jitmes.com/api/Demo/IotDevice/Button?reader=435af433d87c6c69&address=8D77764C&button=02").read()  
         except urllib2.HTTPError,e:
             print e.code
-    if any(ext in text for ext in [u"作业指导书"]):
+    if any(ext in text for ext in [u"作业指导书","SOP"]):
         sendSocket('0501')
         mic.say(u"即将打开作业指导书页面")
     if any(ext in text for ext in [u"打开报警灯"]):
@@ -83,4 +83,4 @@ def isValid(text):
         Arguments:
         text -- user-input, typically transcribed speech
     """
-    return any(word in text for word in ["首页","返回首页","开机页面","看板","生产看板","异常看板","上一页", "下一页","上页", "下页", "报工", "生产报工", "缺料", "设备故障", "设备报修", "作业指导书", "上", "下", "前", "后", "往上", "往下", "往前", "往后", "打开报警灯", "关闭报警灯"])
+    return any(word in text for word in ["首页","返回首页","开机页面","看板","生产看板","异常看板","上一页", "下一页","上页", "下页", "报工", "生产报工", "工单", "缺料", "生产缺料","设备故障", "设备报修", "作业指导书","SOP", "上", "下", "前", "后", "往上", "往下", "往前", "往后", "打开报警灯", "关闭报警灯"])

@@ -1,0 +1,166 @@
+﻿robot_name: 'WEIKANGWEIKANG'  # 必须使用大写  HEYDINGDANG
+robot_name_cn: '维康维康'
+first_name: '老板'
+last_name: '老板'
+timezone: HKT
+location: '厦门'
+
+# 是否接入微信
+wechat: false
+
+# 当微信发送语音时，是直接播放语音还是执行语音命令？
+# true：直接播放
+# false：执行语音命令（只支持百度STT，其他两种STT识别不准）
+wechat_echo: true
+
+# 当有邮件时，是否朗读邮件标题
+read_email_title: true
+
+# 当内容过长（> 200个字）时，是否继续朗读
+# true：读
+# false：改为发送内容
+read_long_content: false
+
+# 最长朗读内容（仅当 read_long_content 为 false 时有效）
+max_length: 200
+
+# 是否使用邮箱发送长内容而不是微信
+prefers_email: false
+
+# 勿扰模式，该时间段内不执行通知检查
+do_not_bother:
+    enable: false # 开启勿扰模式
+    since: 23    # 开始时间
+    till: 9      # 结束时间，如果比 since 小表示第二天
+
+# 语音合成服务配置
+# 可选值：
+# baidu-tts     - 百度语音识别
+# iflytek-tts   - 讯飞语音合成
+# ali-tts       - 阿里语音合成
+tts_engine: iflytek-tts
+
+# STT 服务配置
+# 可选值：
+# sphinx        - pocketsphinx离线识别引擎（需训练，参考修改唤醒词教程）
+# baidu-stt     - 百度在线语音识别
+# iflytek-stt   - 讯飞语音识别
+# ali-stt       - 阿里语音识别
+stt_engine: baidu-stt
+
+# 离线唤醒 SST 引擎
+# 可选值：
+# sphinx        - pocketspinx离线唤醒                                                                                                                                           
+# snowboy-stt   - snowboy离线唤醒
+stt_passive_engine: sphinx
+
+# pocketsphinx 唤醒SST引擎（默认）
+pocketsphinx:
+    fst_model: '/home/pi/g014b2b/g014b2b.fst'                              
+    hmm_dir: '/usr/share/pocketsphinx/model/hmm/en_US/hub4wsj_sc_8k' #optional
+
+# snowboy 唤醒SST引擎（可选）
+# https://snowboy.kitt.ai/dashboard
+snowboy:
+    model: '/home/pi/dingdang/client/snowboy/dingdangdingdang.pmdl'  # 唤醒词模型
+    sensitivity: "0.5"  # 敏感度
+
+# 百度语音服务
+# http://yuyin.baidu.com/
+baidu_yuyin:
+    api_key: 'GjdvdFIPbovHTeykh6Opw41W'   # 建议使用自己的百度语音APP的API Key  qg4haN8b2bGvFtCbBGqhrmZy      
+    secret_key: '897b45c224dad88837b83e9708ad3c74'   # 585d4eccb50d306c401d7df138bb02e7            
+    per: 0  # 发音人选择 0：女生；1：男生；3：度逍遥；4：度丫丫
+
+
+# api_key: 'qg4haN8b2bGvFtCbBGqhrmZy'   # 建议使用自己的百度语音APP的API Key  qg4haN8b2bGvFtCbBGqhrmZy      GjdvdFIPbovHTeykh6Opw41W
+# secret_key: '585d4eccb50d306c401d7df138bb02e7'   # 585d4eccb50d306c401d7df138bb02e7            897b45c224dad88837b83e9708ad3c74
+    
+# 讯飞语音服务
+# api_id 及 api_key 需前往
+# http://aiui.xfyun.cn/webApi
+# 注册获取（注意创建的是WebAPI应用），仅使用语音合成无需注册
+# 然后将树莓派的ip地址添加进ip白名单
+iflytek_yuyin:
+    api_id: '59e31f79'
+    api_key: '557f3910a45f45a3a2c6f139abe5c42f'
+    vid: '65360' #语音合成选项： 60120为小桃丸 67100为颖儿 60170为萌小新
+    url: 'http://api.musiiot.top/stt.php' # 白名单ip中转服务器（可选）
+
+# 阿里云语音
+# ak_id及ak_secret需前往
+# https://data.aliyun.com/product/nls
+# 注册获取
+ali_yuyin:
+    ak_id: '填写你的阿里云应用的AcessKey ID'
+    ak_secret: '填写你的阿里云应用的AcessKey Secret'
+    voice_name: 'xiaoyun' #xiaoyun为女生，xiaogang为男生
+    url: 'http://api.musiiot.top/stt.php' # 白名单ip中转服务器（可选）
+
+# 聊天机器人
+# 可选值：
+# tuling    - 图灵机器人
+# emotibot  - 小影机器人
+robot: emotibot
+
+# 图灵机器人	
+# http://www.tuling123.com
+tuling:
+    tuling_key: '4d6eec9d9a9148bca73236bac6f35824'  # 建议使用自己的图灵机器人API Key
+
+# 小影机器人
+# http://botfactory.emotibot.com/
+emotibot:
+    appid: '32ee80dddb36f1dc5356517503b3f55e'
+    active_mode: false  # 是否主动说更多点话
+
+# 邮箱
+# 如果使用网易邮箱，还需设置允许第三方客户端收发邮件
+email:
+    enable: true
+    address: 'witcare@aliyun.com'
+    password: 'witcare123'  # 如果是网易邮箱，须填写应用授权密码而不是登录密码！
+    smtp_server: 'smtp.aliyun.com
+    smtp_port: '25'  # 这里填写非SSL协议端口号
+    imap_server: 'imap.aliyun.com'
+    imap_port: '143'  # 这里填写非SSL协议端口号
+
+
+# 拍照
+# 需接入摄像头才能使用
+camera:
+    enable: false
+    dest_path: "/home/pi/camera" # 保存目录
+    quality: 5            # 成像质量（0~100）
+    vertical_flip: true     # 竖直翻转
+    horizontal_flip: false  # 水平翻转
+    count_down: 3           # 倒计时（秒），仅当开启倒计时时有效
+    sendToUser: true        # 拍完照是否发送到邮箱/微信    
+    sound: true             # 是否有拍照音效
+    usb_camera: false       # 是否是 USB 摄像头
+
+
+#######################
+# 第三方插件的配置
+#######################
+
+# 在这里放第三方插件的配置
+# https://github.com/wzpan/dingdang-contrib
+
+# 网易音乐
+netease_music:
+    account: '13215918188' # 只支持手机账户
+    password: 'witcare123'
+    report: true    # 是否播报即将播放的音乐
+
+
+# 天气
+# 使用心知天气的接口
+# https://www.seniverse.com/
+weather:
+    key: 'pqfk6ttgb66nuf0h'
+    location: '厦门'
+
+# WEB服务器
+webserver:
+    webport: 8080
